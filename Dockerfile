@@ -1,4 +1,3 @@
-#Dockerfile for Ubuntu 18.04 & Oracle Java 8
 FROM ubuntu:18.04
 MAINTAINER wind_qq <wind_qq@163.com>
 
@@ -7,7 +6,7 @@ RUN apt-get update \
 	&& apt-get install -y \
 		openjdk-8-jdk \
 		software-properties-common \
-		python-software-properties
+		apt-utils
 
 ENV JAVA_HOME /usr/local/jdk1.8.0_141
 ENV JRE_HOME ${JAVA_HOME}/jre
@@ -16,11 +15,11 @@ ENV PATH ${JAVA_HOME}/bin:$PATH
 
 RUN add-apt-repository "deb http://security.ubuntu.com/ubuntu xenial-security main"
 
-RUN apt-get update \
-	&& apt-get install -y \
+RUN apt-get install -y \
 		build-essential \
 		cmake \
 		ant \
+		wget \
 		git \
 		libgtk2.0-dev \
 		pkg-config \
