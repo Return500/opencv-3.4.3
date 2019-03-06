@@ -52,9 +52,10 @@ RUN apt-get install -y \
 	&& rm -rf /var/lib/apt/lists/*
 
 WORKDIR /
-ENV OPENCV_VERSION="3.4.3"
+ENV OPENCV_VERSION "3.4.3"
 RUN wget -O opencv-${OPENCV_VERSION}.zip https://github.com/Itseez/opencv/archive/${OPENCV_VERSION}.zip \
 	&& unzip opencv-${OPENCV_VERSION}.zip \
+	&& cd opencv-${OPENCV_VERSION} \
 	&& mkdir build \
 	&& cd build \
 	&& cmake CMAKE_BUILD_TYPE=Release -D CMAKE_INSTALL_PREFIX=/usr/local .. \
@@ -63,7 +64,7 @@ RUN wget -O opencv-${OPENCV_VERSION}.zip https://github.com/Itseez/opencv/archiv
 	&& make -j8 \
 	&& make install \
 	&& rm /opencv-${OPENCV_VERSION}.zip \
-	&& rm -r /build \
+	&& rm -r /opencv-${OPENCV_VERSION} \
 	&& echo "/usr/local/lib" >> /etc/ld.so.conf.d/opencv.conf \
 	&& idconfig
 
