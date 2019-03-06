@@ -4,9 +4,9 @@ MAINTAINER wind_qq <wind_qq@163.com>
 RUN apt-get update \
 	&& apt-get remove openjdk* \
 	&& apt-get install -y \
+		apt-utils \
 		openjdk-8-jdk \
-		software-properties-common \
-		apt-utils
+		software-properties-common
 
 ENV JAVA_HOME /usr/local/jdk1.8.0_141
 ENV JRE_HOME ${JAVA_HOME}/jre
@@ -14,6 +14,8 @@ ENV CLASSPATH .:${JAVA_HOME}/lib:${JRE_HOME}/lib
 ENV PATH ${JAVA_HOME}/bin:$PATH
 
 RUN add-apt-repository "deb http://security.ubuntu.com/ubuntu xenial-security main"
+
+ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get install -y \
 		build-essential \
