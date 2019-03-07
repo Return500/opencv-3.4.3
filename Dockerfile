@@ -12,7 +12,7 @@ RUN apt-get update \
 		oraclelicense=accept-securebackup-cookie" \
 		"http://download.oracle.com/otn-pub/java/jdk/8u141-b15/336fa29ff2bb4ef291e347e091f7f4a7/jdk-8u141-linux-x64.tar.gz" \
 	&& tar -zxvf jdk-8u141-linux-x64.tar.gz \
-	&& mv jdk1.8.0_141/ /usr/local/ \
+	&& mv jdk1.8.0_141/ /usr/local/ 
 
 ENV JAVA_HOME /usr/local/jdk1.8.0_141
 ENV JRE_HOME ${JAVA_HOME}/jre
