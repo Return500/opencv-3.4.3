@@ -63,8 +63,6 @@ RUN wget -O opencv-${OPENCV_VERSION}.zip https://github.com/Itseez/opencv/archiv
 	&& unzip opencv-${OPENCV_VERSION}.zip \
 	&& mkdir opencv-${OPENCV_VERSION}/build \
 	&& cd opencv-${OPENCV_VERSION}/build \
-	&& cmake CMAKE_BUILD_TYPE=Release -D CMAKE_INSTALL_PREFIX=/usr/local .. \
-	&& make & make install -DENABLE_PRECOMPILED_HEADERS=OFF \
 	&& cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -DBUILD_TESTS=OFF .. \
 	&& make -j8 \
 	&& make install \
