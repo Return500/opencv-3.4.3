@@ -71,7 +71,7 @@ RUN wget -O opencv-${OPENCV_VERSION}.zip https://github.com/Itseez/opencv/archiv
 	&& echo "/usr/local/lib" >> /etc/ld.so.conf.d/opencv.conf \
 	&& ldconfig \
 	&& rm /opencv-${OPENCV_VERSION}.zip \
-	&& rm -r /opencv-${OPENCV_VERSION} \
+	&& rm -r /opencv-${OPENCV_VERSION}
 
 ENV PKG_CONFIG_PATH /usr/local/lib/pkgconfig:$PKG_CONFIG_PATH
 ENV LD_LIBRARY_PATH /usr/local/lib:/usr/local/share/OpenCV/java:/../opencv-3.4.3/bulid/lib/:$LD_LIBRARY_PATH
